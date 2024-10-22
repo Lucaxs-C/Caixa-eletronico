@@ -1,0 +1,128 @@
+//atividade do banco
+int main()
+
+    float quantia = 0, sacar, total;
+    int resposta, deposito, acabar, menos;
+
+    printf("\nVoce esta em um banco usando um caixa eletronico\n");
+
+    while(resposta != 5)
+    {
+    printf("\n\tCAIXA ELETRONICO\n");
+    printf("\nSe deseja depositar dinheiro aperte 1\n\nSe deseja Sacar dinheiro aperte 2\n\nSe deseja ver seu saldo bancario aperte 3\n\nSe deseja ver suas dividas aperte 4\n\nSe deseja Terminar a sessao aperte 5\n");
+    scanf("%i", &resposta);
+
+        if(resposta == 1)
+        {
+
+
+            system("cls");
+            printf("\nVoce esta depositado dinheiro\n");
+            printf("\nVoce tem %.2f reais na sua conta, deseja depositar uma quantia?\n\t1 para sim\n\t2 para nao\n", total);
+                scanf("%i", &deposito);
+
+                if (deposito == 1)
+            {
+                system("cls");
+                printf("\nQuanto dinheiro voce deseja depositar\n");
+                    scanf("%f", &quantia);
+                        printf("\nVoce depositou %.2f\n", quantia);
+                        total = quantia + total;
+
+                        system("pause");
+                        system("cls");
+            }
+
+                if (deposito == 2)
+                {
+                    printf("\nvoce sera retirecionado para o inicio da sessao\n");
+                    system("pause");
+                    system("cls");
+                }
+        }
+
+
+        if (resposta == 2)
+        {
+
+            system("cls");
+            printf("\nVoce esta sacando dinheiro\n");
+            printf("\nVoce tem %.2f reais depositados", total);
+            printf("\nDeseja sacar uma quantia?\n\t1 para sim\n\t2 para nao\n");
+                    scanf("%i", &menos);
+
+
+
+                if (menos == 1)
+            {
+                system("cls");
+                printf("\nQuanto dinheiro voce quer sacar\n");
+                    scanf("%f", &sacar);
+                        printf("\nVoce sacou %.2f\n", sacar);
+                            total = total - sacar;
+
+                                if(total > 0)
+                                {
+                                    system("cls");
+                                    printf("\nvoce ainda possui %.2f reais na sua conta bancario\n", total);
+                                    system("pause");
+                                    system("cls");
+                                }
+
+                                if(total < 0)
+                                {
+                                    system("cls");
+                                    printf("\n\tSALDO NEGATIVO \nSua conta sera suspensa em breve, mandaremos um e-mail explicando melhor a situacao\n");
+                                    system("pause");
+                                    system("cls");
+                                }
+
+            }
+                if (menos == 2)
+                {
+                    printf("\nvoce sera retirecionado para o inicio da sessao\n");
+                    system("pause");
+                    system("cls");
+                }
+
+        }
+
+         if(resposta == 4)
+        {
+            system("cls");
+            if(total >= 0)
+            {
+                printf("\nVoce nao possui uma divida\n");
+            }
+
+            if(total < 0)
+            {
+                printf("\nDivida : %.2f\n",total);
+            }
+
+                system("pause");
+                system("cls");
+        }
+
+        if(resposta == 3)
+        {
+            system("cls");
+            printf("\nSaldo Bancario : %.2f\n", total);
+            system("pause");
+            system("cls");
+        }
+
+        if(resposta >= 6 || resposta <= 0)
+        {
+            printf("\nalgo deu errado, tentei novamente\n");
+            system("pause");
+            system("cls");
+        }
+    }
+
+printf("\nSessao terminada\n");
+system("pause");
+system("cls");
+
+return 0;
+}

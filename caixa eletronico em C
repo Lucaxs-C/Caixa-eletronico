@@ -1,10 +1,25 @@
-//atividade do banco
-int main()
+#include <stdio.h>
+#include <stdlib.h>
 
+
+int main()
+{//Atividade do banco
+    printf("\n\tAtividade Um\n");
+
+    char nome[20];
     float quantia = 0, sacar, total;
-    int resposta, deposito, acabar, menos;
+    int resposta, deposito, acabar, menos, senha, senha2;
 
     printf("\nVoce esta em um banco usando um caixa eletronico\n");
+
+    printf("\nDigite seu nome\n");
+    scanf("%s", &nome);
+
+
+    printf("\nDigite sua senha\n");
+    scanf("%d", &senha);
+
+    system("cls");
 
     while(resposta != 5)
     {
@@ -24,10 +39,32 @@ int main()
                 if (deposito == 1)
             {
                 system("cls");
+
+                printf("\nDigite sua senha \n");
+                    scanf("%d", &senha2);
+
+                        if(senha2 != senha)
+                        {
+                                while (senha != senha2 )
+                                {
+                                    printf("\nAlgo ocorreu errado, tente digite sua senha novamente \n");
+                                    scanf("%d", &senha2);
+                                }
+                        }
+
+                system("cls");
                 printf("\nQuanto dinheiro voce deseja depositar\n");
                     scanf("%f", &quantia);
-                        printf("\nVoce depositou %.2f\n", quantia);
-                        total = quantia + total;
+                       if (quantia < 0)
+                       {
+                           printf("\nNao e possivel depositar numeros negativos\n");
+                       }
+
+                        if (quantia > 0)
+                        {
+                            printf("\nVoce depositou %.2f\n", quantia);
+                            total = quantia + total;
+                        }
 
                         system("pause");
                         system("cls");
@@ -56,8 +93,30 @@ int main()
                 if (menos == 1)
             {
                 system("cls");
+                    printf("\nDigite sua senha \n");
+                    scanf("%d", &senha2);
+
+                        if(senha2 != senha)
+                        {
+                                while (senha != senha2 )
+                                {
+                                    printf("\nAlgo ocorreu errado, tente digite sua senha novamente \n");
+                                    scanf("%d", &senha2);
+                                }
+
+                        }
+                system("cls");
                 printf("\nQuanto dinheiro voce quer sacar\n");
                     scanf("%f", &sacar);
+                        if (sacar < 0)
+                       {
+                           printf("\nNao e possivel sacar numeros negativos\n");
+                                    system("pause");
+                                    system("cls");
+                       }
+
+                    if(sacar > 0)
+                    {
                         printf("\nVoce sacou %.2f\n", sacar);
                             total = total - sacar;
 
@@ -72,11 +131,11 @@ int main()
                                 if(total < 0)
                                 {
                                     system("cls");
-                                    printf("\n\tSALDO NEGATIVO \nSua conta sera suspensa em breve, mandaremos um e-mail explicando melhor a situacao\n");
+                                    printf("\n\tSALDO NEGATIVO \nSua conta bancaria sera suspensa em breve, mandaremos um e-mail explicando melhor a situacao\n");
                                     system("pause");
                                     system("cls");
                                 }
-
+                    }
             }
                 if (menos == 2)
                 {
@@ -92,7 +151,7 @@ int main()
             system("cls");
             if(total >= 0)
             {
-                printf("\nVoce nao possui uma divida\n");
+                printf("\nVoce nao possui dividas\n");
             }
 
             if(total < 0)
@@ -124,5 +183,11 @@ printf("\nSessao terminada\n");
 system("pause");
 system("cls");
 
-return 0;
+
+
+
+
+
+
+    return 0;
 }

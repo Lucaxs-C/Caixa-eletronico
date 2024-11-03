@@ -1,0 +1,71 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+//Exercicos numero 17
+
+    printf("\n\tAtividade Dezesete\n");
+
+    char AouG;
+    float litros, pagar, negativo;
+
+printf("\nVoce esta em um posto de gasolina oque voce querer ?\nAperte G para galosina \nAperte A para alcool ?\n");
+    scanf("%s", &AouG);
+
+    switch(AouG)
+    {
+    case 'G' :
+    case 'g' :
+    printf("\nQuantos litro de gasolina voce vai querer ?\n");
+        scanf("%f", &litros);
+
+        if (litros < 0)
+        {
+          printf("\nNao e possivel abastecer litros negativos\n");
+        }
+
+        else if (litros <= 20)
+        {
+            pagar = (litros * 3.3 ) * 0.03;
+            negativo = litros * 3.3 - pagar;
+            printf("\nVoce vai pagar %.2f reais em %.2f litros de gasolina, um desconto de 3%% abaixo de 20 litros\n", negativo, litros);
+        }
+        else if (litros > 20)
+        {
+            pagar = (litros * 3.3 ) * 0.05;
+            negativo = litros * 3.3 - pagar;
+            printf("\nVoce vai pagar %2.f reais em %.2f litros de gasolina, um desconto de 5%% acima de 20 litros\n", negativo, litros);
+        }
+    break;
+
+    case 'A' :
+    case 'a' :
+        printf("\nQuantos litro de alcool voce vai querer ?\n");
+        scanf("%f", &litros);
+
+        if (litros < 0)
+        {
+          printf("\nNao e possivel abastecer litros negativos\n");
+        }
+
+        else if (litros <= 20)
+        {
+            pagar = (litros * 2.9 ) * 0.04;
+            negativo = litros * 2.9 - pagar;
+            printf("\nVoce vai pagar %2.f reais em %.2f litros de alcool, um desconto de 3%% abaixo de 20 litros\n", negativo, litros);
+        }
+        else if (litros > 20)
+        {
+            pagar = (litros * 2.9 ) * 0.06;
+            negativo = litros * 2.9 - pagar;
+            printf("\nVoce vai pagar %2.f reais em %.2f litros de gasolina, um desconto de 5%% acima de 20 litros\n", negativo, litros);
+        }
+    break;
+
+    default : printf("\nAlgo errado aconteceu, tente novamente\n");
+    }
+
+  return 0;
+}
